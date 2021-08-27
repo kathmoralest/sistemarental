@@ -14,3 +14,7 @@ Tests para clase Customer |
 --- |
 ![image](https://user-images.githubusercontent.com/73547550/131069320-e3412dc8-c066-466e-886d-2ec1812624e8.png) |
 
+
+Tests para clase VideoGameRental |
+--- |
+![image](https://user-images.githubusercontent.com/8119854/131070262-79cb3d83-ff51-4f7f-89fe-9b6ff518acfb.png)
