@@ -10,3 +10,7 @@ Tests para clase MovieRental |
 --- |
 ![image](https://user-images.githubusercontent.com/73547550/131013414-e8ed039c-8834-44ac-bcdf-3392301b7c01.png) |
 
+Tests para clase Customer |
+--- |
+![image](https://user-images.githubusercontent.com/73547550/131069320-e3412dc8-c066-466e-886d-2ec1812624e8.png) |
+
