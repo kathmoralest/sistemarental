@@ -1,35 +1,57 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package rentalsystem2;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
-class CustomerTest {
-
+/**
+ *
+ * @author Natalia Ramirez
+ */
+public class CustomerTest {
+    
     Ps3Game littleBigPlanet;
     Xbox360Game fable2;
     WiiGame superSmashBrosBrawl;
 
-    @BeforeEach
-    void setUp() {
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
+
+    @Before
+    public void setUp() throws Exception {
         littleBigPlanet = new Ps3Game("Little Big Planet");
         fable2 = new Xbox360Game("Fable 2");
         superSmashBrosBrawl = new WiiGame("Super Smash Bros. Brawl");
     }
 
-    @AfterEach
-    void tearDown() {
+    @After
+    public void tearDown() throws Exception {
     }
 
+    
     @Test
-    void getName() {
+    public void testGetName() {
+        System.out.println("testGetName");
         String name = "John Doe";
         assertEquals(name, new Customer(name)._name);
     }
 
     @Test
-    void addMovieRental() {
-        System.out.println("addMovieRental()");
+    public void testAddMovieRental() {
+        System.out.println("addMovieRental");
         Customer cliente = new Customer("Pepe");
         Movie prueba = new Movie("True Beauty",Movie.NEW_RELEASE);
         cliente.addMovieRental(new MovieRental(prueba,7));
@@ -45,6 +67,7 @@ class CustomerTest {
     public void testStatementPs3GameOnly() {
         // Ps3 games cost $4.00 for the first 4 days, and $1.250/day thereafter
         // a rental earns 2 frequent-renter point no matter how many days
+        System.out.println("testStatementPs3GameOnly");
         Customer johnDoe = new Customer("John Doe");
         johnDoe.addVideoGameRental(new VideoGameRental(littleBigPlanet, 1, false));
         assertEquals("Rental Record for John Doe\n" +
@@ -73,6 +96,7 @@ class CustomerTest {
     public void testStatementWiiGameOnly() {
         // childrens' movies cost $1.50 for the first 3 days, and $1.50/day thereafter
         // a rental earns 1 frequent-renter point no matter how many days
+        System.out.println("testStatementWiiGameOnly");
         Customer johnDoeJr = new Customer("Johnny Doe, Jr.");
         johnDoeJr.addVideoGameRental(new VideoGameRental(superSmashBrosBrawl, 1, false));
         assertEquals("Rental Record for Johnny Doe, Jr.\n" +
@@ -101,6 +125,7 @@ class CustomerTest {
     public void testStatementXbox360GameOnly() {
         // new releases cost $3.00/day
         // a rental earns 1 frequent-renter point 1 day; 2 points for 2 or more days
+        System.out.println("testStatementXbox360GameOnly");
         Customer janeDoe = new Customer("Jane Doe");
         janeDoe.addVideoGameRental(new VideoGameRental(fable2, 1, false));
         assertEquals("Rental Record for Jane Doe\n" +
@@ -124,4 +149,18 @@ class CustomerTest {
                         "You earned 6 frequent renter points",
                 janeDoe.statement());
     }
+
+    
+    /**
+     * Test of addVideoGameRental method, of class Customer.
+     */
+    @Test
+    public void testAddVideoGameRental() {
+        System.out.println("addVideoGameRental");
+        VideoGameRental arg = new VideoGameRental(fable2, 5, true);
+        Customer instance = new Customer("Pepe");
+        instance.addVideoGameRental(arg);
+        
+    }
+
 }
